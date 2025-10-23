@@ -105,7 +105,13 @@ def list_courses(args):
     @type args: namedtuple
     """
     session = get_session()
-    login(session, args.username, args.password)
+    if args.cookies_cauth:
+        session.cookies.set('CAUTH', args.cookies_cauth)
+    elif args.cookies_file:
+        from coursera.cookies import get_cookies_for_class
+        get_cookies_for_class(session, None, cookies_file=args.cookies_file)
+    else:
+        login(session, args.username, args.password)
     extractor = CourseraExtractor(session)
     courses = extractor.list_courses()
     logging.info('Found %d courses', len(courses))
@@ -235,6 +241,9 @@ def main():
     session = get_session()
     if args.cookies_cauth:
         session.cookies.set('CAUTH', args.cookies_cauth)
+    elif args.cookies_file:
+        from coursera.cookies import get_cookies_for_class
+        get_cookies_for_class(session, None, cookies_file=args.cookies_file)
     else:
         login(session, args.username, args.password)
     if args.specialization:

@@ -114,8 +114,14 @@ def clean_filename(s, minimal_change=False):
     """
 
     # First, deal with URL encoded strings
-    h = html_parser.HTMLParser()
-    s = h.unescape(s)
+    try:
+        # Python 3
+        import html
+        s = html.unescape(s)
+    except ImportError:
+        # Python 2
+        h = html_parser.HTMLParser()
+        s = h.unescape(s)
     s = unquote_plus(s)
 
     # Strip forbidden characters

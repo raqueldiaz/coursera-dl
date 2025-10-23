@@ -261,7 +261,7 @@ def find_cookies_for_class(cookies_file, class_name):
     .coursera.org and class.coursera.org found in the given cookies_file.
     """
 
-    path = "/" + class_name
+    path = "/" + class_name if class_name else "/"
 
     def cookies_filter(c):
         return c.domain == ".coursera.org" \
@@ -288,7 +288,8 @@ def load_cookies_file(cookies_file):
 
     cookies = StringIO()
     cookies.write('# Netscape HTTP Cookie File')
-    cookies.write(open(cookies_file, 'rU').read())
+    with open(cookies_file, 'r', encoding='utf-8') as f:
+        cookies.write(f.read())
     cookies.flush()
     cookies.seek(0)
     return cookies
