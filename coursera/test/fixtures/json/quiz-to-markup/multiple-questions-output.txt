@@ -9,7 +9,8 @@
  <span>
   Data point 1
  </span>
-</co-content><br></label>
+</co-content>
+<br></label>
 </form>
 <hr>
 <h3>Question 3</h3>
@@ -19,7 +20,8 @@
  <span>
   Data point 2
  </span>
-</co-content><br></label>
+</co-content>
+<br></label>
 </form>
 <hr>
 <h3>Question 4</h3>

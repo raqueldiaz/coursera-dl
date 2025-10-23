@@ -6,6 +6,7 @@
  <span>
   Data point 1
  </span>
-</co-content><br></label>
+</co-content>
+<br></label>
 </form>
 <hr>

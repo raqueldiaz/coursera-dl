@@ -5,11 +5,13 @@
  <span>
   Answer 1
  </span>
-</co-content><br></label>
+</co-content>
+<br></label>
 <label><input type="radio" name="0"><co-content>
  <span>
   Answer 2
  </span>
-</co-content><br></label>
+</co-content>
+<br></label>
 </form>
 <hr>
